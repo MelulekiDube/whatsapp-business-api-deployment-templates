@@ -633,7 +633,7 @@ Resources:
   ms:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: "<Replace with your own S3 object URL>"
+      TemplateURL: "https://melu.s3.us-east-2.amazonaws.com/wa_ent_monitoring.yml"
       Parameters:
         WAEntLB: !Join ["", [!GetAtt [WAEntLB, DNSName]]]
         DBHostname:
@@ -669,7 +669,7 @@ Resources:
     Condition: CreateDBInstance
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: "<Replace with your own S3 object URL>"
+      TemplateURL: "https://melu.s3.us-east-2.amazonaws.com/wa_ent_db.yml"
       Parameters:
         VpcId:
           Fn::ImportValue: !Sub "${NetworkStackName}-VPC"
